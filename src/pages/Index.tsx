@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Wallet, TrendingUp, TrendingDown, Plus, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Wallet, TrendingUp, TrendingDown, Sparkles } from 'lucide-react';
 import { SummaryCard } from '@/components/dashboard/SummaryCard';
 import { DonutChart } from '@/components/dashboard/DonutChart';
 import { TransactionList } from '@/components/transaction/TransactionList';
 import { AddTransactionModal } from '@/components/transaction/AddTransactionModal';
+import { BottomNav } from '@/components/navigation/BottomNav';
 import { useTransactions } from '@/hooks/useTransactions';
 
 const Index = () => {
@@ -86,16 +86,8 @@ const Index = () => {
         </section>
       </main>
 
-      {/* Floating Add Button */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <Button
-          onClick={() => setIsModalOpen(true)}
-          size="lg"
-          className="w-14 h-14 rounded-full gradient-primary shadow-glow hover:scale-110 transition-transform"
-        >
-          <Plus className="w-6 h-6" />
-        </Button>
-      </div>
+      {/* Bottom Navigation */}
+      <BottomNav onAddClick={() => setIsModalOpen(true)} />
 
       {/* Add Transaction Modal */}
       <AddTransactionModal
